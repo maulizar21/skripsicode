@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+        <div class=" d-flex justify-content-center align-items-center vw-100 h-100 " style="background-color:#1abc9c;">
+          <div style="width: 500px;" >
+            <div class="imgcontainer d-flex justify-content-center align-items-center flex-column">
+              <img src="{% static 'image/uskbg.png' %}" width="100" alt="Avatar" class="">
+                <span style="color: #ffa84c; font-size: 25px;">
+                  <b>SIMKULIAH</b>
+                </span>
+                <i>
+                  <strong>Sistem Informasi Perkuliahan</strong>
+                </i>
+          </div>
+            
+            <form id="form-login" onSubmit="event.preventDefault()" method="post" class="border border-dark p-3 rounded bg-light" >
+              {% csrf_token %}
+                <h5 style="color: black; padding-top: 15px;" class="text-left txt-primary">Login Dengan Akun SIMPEG/KRS</h5>
+                <hr>
+              <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="username" required>
+            
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" required>
+            
+                <!-- <button type="submit">Login</button> -->
+                <button type="button" class="buttonhijau" id="openCameraModal" >
+                 Login
+                </button>
+                <!-- <label>
+                  <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label> -->
+                {% for message in messages %}
+                <div class="alert alert-danger" role="alert">
+                    {{message}}
+                </div>
+              {% endfor %}
+              <!-- Button trigger modal -->
+                    <!-- Modal -->
+                    <div class="modal fade" id="cameraModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cameraModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content">
+                         
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="cameraModalLabel">Tampilkan Wajah Anda</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body d-flex justify-content-center align-items-center flex-column">
+                            <div class="alert m-3 w-100 d-none " role="alert" id="login-alert"></div>
+                            <div class="w-100 position-relative">
+                              <div  class="w-100 h-100 position-absolute border border-white d-flex justify-content-center align-items-center">
+                                <div style='width: 6rem; height: 6rem;' id="loading-spinner" class="spinner-border spinner-border-lg d-none text-light text" role="status">
+                                  <span class="visually-hidden">Loading...</span>
+                                </div>
+                              </div>
+                              <video id="video" class="w-100" autoplay></video>
+                            </div>
+                            <canvas id="canvas" class="border d-none" ></canvas>
+                          </div>
+                          <div class="modal-footer ">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" id="submit-login-form" class="buttonhijau">Confirm</button>
+                  
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div>
+              </form>
+                  <p class="text-center text-light mt-4">  2023 &#169; Maulizar & Team Universitas Syiah Kuala </p>
+          </div>
+        </div>
+
+       
+      
+        
+</body>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/login.js' %}"></script>
+{% endblock %}

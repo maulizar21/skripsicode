@@ -1,0 +1,52 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<nav class="navbar navbar-expand-lg navbar-light px-3" style="background-color:#2C3E50 ;">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse  navbar-collapse d-flex justify-content-between" id="navbarTogglerDemo01">
+    <div class="d-flex  justify-content-between align-items-center" style="width:300px">
+      <div class="d-flex ">
+        <img src="{% static 'image/uskbg.png' %}" width="45" height="45" alt="Avatar" class="me-3">
+        <div class="text-center">
+          <p class="m-0 fw-bold text-warning">SIMKULIAH</p>
+          <p class="m-0 text-light fst-italic fw-lighter ">UNIVERSITAS SYIAH KUALA</p>
+        </div>
+      </div>
+      <button type="button" onclick="toggleNav()" class="btn text-center text-light bg-none" style="width:50px;font-size: 20px;">
+        <i class="fa-solid fa-bars"></i> 
+      </button>
+    </div>
+    <div class="d-flex justify-content-evenly " style="width:370px">
+      <div class="py-1 rounded text-light fw-bold px-4 bg-primary" style="font-size: 12px;" id="datetime-live"></div>
+      <div class="py-1 rounded text-light fw-bold px-4 bg-danger" style="font-size: 12px;" >Mahasiswa</div>
+    </div>
+  </div>
+</nav>
+
+<div class="bodycontent" >
+    <div id="mySidenav" class="sidenav">
+        <a href="{% url 'beranda'%}"> <i class="fa-solid fa-house me-2"></i> Beranda</a>
+        <a href="{% url 'absensi'%}"><i class="fa-solid fa-list me-2"></i> Absensis</a>
+        <a href="{% url 'jadwalkuliah'%}"><i class="fa-solid fa-calendar-days me-2"></i>Jadwal Kuliah</a>
+        <a href="{% url 'jadwaltoday'%}"><i class="fa-solid fa-calendar-days me-2"></i>Jadwal Kuliah Hari Ini</a>
+        <a href="{% url 'logout'%}"><i class="fa-solid fa-right-from-bracket me-2"></i>logout</a>
+    </div>
+    
+    <div id="main">
+        {% block home_content %}
+        <div>content</div>
+        
+        {% endblock %}
+    </div>
+    
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock %}
+

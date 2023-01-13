@@ -1,0 +1,36 @@
+{% extends "home_base.html" %}
+
+{% block home_content %}
+<div  style="display: flex; justify-content:center;" >
+    
+    <div class="container">
+        <h4>Jadwal Kuliah </h4>
+        <p>23-11-2000</p>
+        <div class="border p-3 rounded" style="border:1px solid gray">
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th rowspan="2" style="vertical-align: middle">Nama</th>
+                      <th rowspan="2" style="vertical-align: middle">NPM</th>
+                      <th rowspan="2" style="vertical-align: middle">MK</th>
+                      <th rowspan="2" style="vertical-align: middle">Waktu</th>
+                    </tr>   
+                  </thead>
+                  <tbody>
+                    <tr>
+                    <td style="text-align: center">Maulizar Bahagia</td>
+                    <td style="text-align: center">1804105010079</td>
+                    <td style="text-align: center">SOSIALISTIK</td>
+                    <td style="text-align: center">8:00-12:00</td>    
+                    </tr>
+                </tbody>
+            </table>
+      </div>
+  </div>
+</div>
+
+<div style="display: flex; justify-content:center;">
+    <button type="button"  onclick="alert('Anda Sudah Absen✓')" class="btn btn-success">ABSEN</button>
+</div>
+
+{% endblock %}

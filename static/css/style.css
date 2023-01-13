@@ -1,0 +1,129 @@
+body{
+    height: 100vh;
+    padding:0;
+}
+
+.colorheader{
+    background-color:darkslategray;
+    color:darkgoldenrod;
+    padding: 2px;
+}
+
+.colorbody{
+    background-color:cadetblue;
+    color: black;
+    padding: 5px;
+}
+
+.colorlist{
+    background-color: darkseagreen;
+    color: black;
+    padding: 5px;
+}
+
+.colorkehadiran{
+    background-color: burlywood;
+    color: black;
+    padding: 5px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    text-align:center;
+}
+
+table{
+    width: 50%;
+}
+
+.gambar{
+background-image :url(USK.png);
+width: 40px;
+height: 40px;
+background-size:cover;
+}
+
+.USER{
+    background-image :url(USER.png);
+    width: 45px;
+    height: 45px;
+    background-size:cover;
+}
+
+.title p{
+    
+    margin: 0%;
+    font-size: medium;
+}
+
+.headerblock {
+    display: flex; flex-direction: row;
+}
+
+header{
+    display: flex; justify-content: space-between;
+    width: 100%;
+    height: 7vh;
+    margin: 0;
+}
+
+.margin{
+    margin:100px;
+}
+
+.design{
+    position: absolute; bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.colorbottom{
+    background-color: cadetblue;
+    color: chartreuse;
+    padding: 2px;
+}
+
+.sidenav{
+    height: 100%;
+    width: 0;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: darkslategray;
+    overflow-x:hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+
+.sidenav a{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover{
+    color: darkslategray;
+}
+
+.sidenav a .closebtn{
+    position:absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+#main {
+    transition: margin-left .5s;
+    border:1px solid;
+  }
+
+.bodycontent{
+    position: relative;
+    height: 90vh;
+    margin:0;
+    padding:0;
+}
