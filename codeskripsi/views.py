@@ -2,6 +2,7 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
+from yourapp.models import Presence
 import face_recognition
 import io, base64
 import os
@@ -97,6 +98,7 @@ def absensi(request):
 
 def jadwalkuliah(request):
     if request.user.is_authenticated:
+
         return render(request, "jadwalkuliah.html")
     return redirect('loginform')
 

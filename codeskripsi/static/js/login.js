@@ -60,8 +60,9 @@ var cameraModal = new bootstrap.Modal(document.getElementById('cameraModal'), {
         $("#login-alert").addClass(data.status ? "alert-primary" : "alert-danger")
         $("#login-alert").text(data.message)
         $("#login-alert").removeClass("d-none")
-  
+        console.log(data)
         if(data.status){
+
           window.location.href = '/'
           $("#loading-spinner").addClass("d-none")
           // alert(data.message)
