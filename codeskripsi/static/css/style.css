@@ -129,6 +129,13 @@ header{
     padding:0;
 }
 
+
+.page-header{
+  margin-bottom: 20px;
+}
+.page-header-title {
+  display: inline-block;
+}
 .formlogin{
         border: 3px solid #f1f1f1;
       }
@@ -203,3 +210,5 @@ header{
           width: 100%;
         }
       }
+
+

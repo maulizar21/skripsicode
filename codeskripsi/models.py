@@ -1,6 +1,7 @@
 # Create your models here.
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 class Class(models.Model):
     class_name = models.CharField(max_length=255)
@@ -9,6 +10,7 @@ class Class(models.Model):
         return self.class_name
 
 class Presence(models.Model):
+    id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     status_choices = [
         ('present', 'Present'),
@@ -22,3 +24,7 @@ class Presence(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.status} - {self.timestamp}"
+
+    def is_now_between_schedule(self):
+        now = timezone.now()
+        return self.schedule <= now <= self.schedule_limit

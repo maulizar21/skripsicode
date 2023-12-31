@@ -1,8 +1,53 @@
 {% extends "home_base.html" %}
-
+{% load static %}
 {% block home_content %}
 
 <div class="container">
+  <div class="page-header">
+      <div class="page-header-title">
+          <h4>Absensi Hari Ini | {% now "d F Y" %}</h4>
+      </div>
+  </div>
+  <hr class="border border-3 border-success">
+
+  {% if messages %}
+    {% for message in messages %}
+        <div class="alert {% if message.tags == 'success' %}alert-success{% elif message.tags == 'error' %}alert-danger{% endif %}" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+  {% endif %}
+
+  <div class="page-body ">
+    {% if user_schedule %}
+      <div id="schedules" class=" d-flex gap-3">
+            {% for item in user_schedule %}
+                <div class="card border rounded-lg p-3" style="width: 18rem;box-shadow: 3px 4px 21px -2px rgba(0,0,0,0.75);">
+                  <img src="{% static 'image/uskbg.png' %}" width="14" class="card-img-top mb-5 border" alt="...">
+                  <div class="card-body p-2">
+                    <h5 class="card-title">{{item.class_name}}</h5>
+                    <p class="card-text">{{item.schedule|date:"d-F-Y"}} <br> <span class="badge bg-secondary">{{item.schedule|date:"H:i:s"}} s/d {{item.schedule_limit|date:"H:i:s"}}</span></p>
+                    {% if item.status == 'present' %}
+                      <span class="badge bg-success">Sudah Absen</span>
+                    {% else %}
+                      {% if item.is_now_between_schedule %}
+                        <a onclick="absen('{{base_url}}/konfirmasi_hadir/{{item.id}}')" class="btn btn-primary">Konfirmasi Hadir</a>
+                      {% else %}
+                        <span class="badge bg-secondary">Belum Masuk Waktu Absen</span>
+                      {% endif%}
+                    {% endif %}
+                  </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+      <div class="alert alert-primary" role="alert">
+        Belum Ada Waktu Absen 
+      </div>
+    {% endif %}
+  </div>
+</div>
+<!-- <div class="container">
     <h4>Jadwal Kuliah Hari ini</h4>
     <p>23-11-2000</p>
     <div class="border p-3 rounded" style="border:1px solid gray">
@@ -57,6 +102,11 @@
             </tbody>
           </table>
     </div>
-</div>
+</div> -->
 
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+<script src="{% static 'js/jadwaltoday.js' %}"></script>
 {% endblock %}

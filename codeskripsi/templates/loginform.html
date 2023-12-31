@@ -18,7 +18,7 @@
                 <h5 style="color: black; padding-top: 15px;" class="text-left txt-primary">Login Dengan Akun SIMPEG/KRS</h5>
                 <hr>
               <label for="uname"><b>NIP / NPM </b></label>
-                <input type="text" placeholder="Masukkan NIP / NPM" name="username" required>
+                <input type="text" placeholder="Masukkan NIP / NPM" name="nim" required>
             
                 <label for="psw"><b>Password</b></label>
                 <input type="password" placeholder="Masukkan Password" name="password" required>
@@ -31,10 +31,10 @@
                   <input type="checkbox" checked="checked" name="remember"> Remember me
                 </label> -->
                 {% for message in messages %}
-                <div class="alert alert-danger" role="alert">
-                    {{message}}
-                </div>
-              {% endfor %}
+                  <div class="alert alert-danger" role="alert">
+                      {{message}}
+                  </div>
+                {% endfor %}
               <!-- Button trigger modal -->
                     <!-- Modal -->
                     <div class="modal fade" id="cameraModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cameraModalLabel" aria-hidden="true">

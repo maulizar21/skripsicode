@@ -3,7 +3,7 @@ from .models import Presence, Class
 
 @admin.register(Presence)
 class PresenceAdmin(admin.ModelAdmin):
-    list_display = ('user', 'status', 'timestamp', 'schedule', 'schedule_limit',  'class_name',)
+    list_display = ('id', 'user', 'status', 'timestamp', 'schedule', 'schedule_limit',  'class_name',)
 
 @admin.register(Class)
 class ClassAdmin(admin.ModelAdmin):

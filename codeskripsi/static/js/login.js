@@ -63,7 +63,7 @@ var cameraModal = new bootstrap.Modal(document.getElementById('cameraModal'), {
         console.log(data)
         if(data.status){
 
-          window.location.href = '/'
+          window.location.href = '/jadwal_today'
           $("#loading-spinner").addClass("d-none")
           // alert(data.message)
         }else{
@@ -75,8 +75,9 @@ var cameraModal = new bootstrap.Modal(document.getElementById('cameraModal'), {
   
   });
   
-  $("#cameraModal .btn-close").click(function(){
-    cameraModal.hide()
+  
+  $("#cameraModal").on("hide.bs.modal", function(){
+    console.log("matikan kamera")
     stream.getTracks().forEach(track => track.stop())
   })
   
